@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            background-image: url(https://preview.redd.it/high-quality-in-rainbows-desktop-background-v0-vvq3pmz35pea1.jpg?auto=webp&s=c7f47171abc1f988c7d8058b73b1af656db44404);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;}
+            .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); 
+      grid-auto-rows: 90px; 
+      align-items: center; 
+      justify-items: center; 
+      z-index: 0; 
+      pointer-events: none; 
+    }
+
+    .rainbow-text {
+      font-size: 50px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .rainbow-text:nth-child(1n) { color: #f94144; } 
+    .rainbow-text:nth-child(2n) { color: #f3722c; } 
+    .rainbow-text:nth-child(3n) { color: #f8961e; } 
+    .rainbow-text:nth-child(4n) { color: #f9c74f; } 
+    .rainbow-text:nth-child(5n) { color: #90be6d; } 
+    .rainbow-text:nth-child(6n) { color: #43aa8b; } 
+    .rainbow-text:nth-child(7n) { color: #577590; } 
+    .rainbow-text:nth-child(8n) { color: #f94144; } 
+    .rainbow-text:nth-child(9n) { color: #bbe3e1; }
+        .calculadora {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px1;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+
+            animation: colorAnimation 10s infinite alternate;}
+            
+        .display {
+            width: 90%;
+            height: 40px;
+            border: none;
+            margin-bottom: 15px;
+            font-size: 20px;
+            text-align: right;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #e9e9e9;}
+        .botoes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;}
+        button {
+            height: 60px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #dcdcdc;
+            cursor: pointer;
+            transition: background-color 0.2s;}
+        button:hover {
+            background-color: #3744b9;}
+        .operacao {
+            background-color: #292323;
+            color: white;}
+        .operacao:hover {
+            background-color: #d58e20;}
+        .limpar {
+            background-color: #292323;
+            color: white;}
+.limpar:hover {
+            background-color: #d32f2f;}
+        @keyframes colorAnimation {
+      0% { background-color: #0d0a0f; }
+      14% { background-color: #e1943f; }
+      28% { background-color: #3572a2; }
+      42% { background-color: #bbe3e1; }
+      57% { background-color: #d44a28; }
+      71% { background-color: #5c2521; }
+      85% { background-color: #57a649; }
+      100% { background-color: #f6ec4c; }
+    }
+    </style>
+</head>
+<body>
+    <div class="calculadora">
+        <input type="text" class="display" id="display" readonly>
+        <div class="botoes">
+            <button onclick="adicionarValor('7')">7</button>
+            <button onclick="adicionarValor('8')">8</button>
+            <button onclick="adicionarValor('9')">9</button>
+            <button class="operacao" onclick="adicionarValor('/')">/</button>
+
+            <button onclick="adicionarValor('4')">4</button>
+            <button onclick="adicionarValor('5')">5</button>
+            <button onclick="adicionarValor('6')">6</button>
+            <button class="operacao" onclick="adicionarValor('*')">*</button>
+
+            <button onclick="adicionarValor('1')">1</button>
+            <button onclick="adicionarValor('2')">2</button>
+            <button onclick="adicionarValor('3')">3</button>
+            <button class="operacao" onclick="adicionarValor('-')">-</button>
+
+            <button onclick="adicionarValor('0')">0</button>
+            <button onclick="adicionarValor('.')">.</button>
+            <button onclick="calcular()">=</button>
+            <button class="operacao" onclick="adicionarValor('+')">+</button>
+
+            <button class="limpar" onclick="limpar()">C</button>
+        </div>
+    </div>
+    <div class="background">
+        <div class="rainbow-text">IN/ CALCULADORA</div>
+        <div class="rainbow-text">IN CALCUL/ADORA</div>
+        <div class="rainbow-text">IN CALCULADOR/A</div>
+        <div class="rainbow-text">IN CALCULADORA/</div>
+        <div class="rainbow-text">IN CALCULA_DORA</div>
+        <div class="rainbow-text">IN CALCULADOR_A</div>
+        <div class="rainbow-text">IN _CALCULADORA</div>
+        <div class="rainbow-text">IN CAL_CULADORA</div>
+        <div class="rainbow-text">IN CAL/CULA_DORA</div>
+        <div class="rainbow-text">IN CALCUL/ADORA/</div>
+      </div>
+
+    <script>
+        const display = document.getElementById('display');
+        
+
+        function adicionarValor(valor) {
+            display.value += valor;}
+        function calcular() {
+            try {
+                display.value = eval(display.value);
+            } catch {
+                display.value = "Erro";
+            }}
+        function limpar() {
+            display.value = "";}
+            
+    </script>
+    <audio id="background-audio" loop>
+        <source src="y2mate.com - Radiohead  Weird Fishes  Arpeggi.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+      </audio>
+
+      <button onclick="document.getElementById('background-audio').play()">
+        Tocar Música :>
+      </button>
+</body>
+
+</html>
+
